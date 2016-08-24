@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 from sys import argv
 import os
-from multiprocessing.dummy import Pool as ThreadPool
+from multiprocessing import Pool
 
-script, pathname, tnumber = argv
+#script, pathname, tnumber = argv
+script, pathname = argv
 
 #k = ['\n', ' ', '#']
 k = ['#']
-
-pool = ThreadPool(int(tnumber))
 
 def linecounter(filenames):
     count = 0
@@ -35,6 +34,9 @@ for roots, dirs, files in os.walk(pathname):
         #lines = linecounter(name)
         #lalala += lines
 #        print(name, lines, lalala)
+
+#pool = Pool(int(tnumber))
+pool = Pool()
 k = pool.map(linecounter, l)
 pool.close()
 pool.join()
