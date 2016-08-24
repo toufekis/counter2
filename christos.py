@@ -2,12 +2,14 @@
 from sys import argv
 import os
 import fileinput
+from multiprocessing.dummy import Pool as ThreadPool
 
 script, pathname = argv
 
 #k = ['\n', ' ', '#']
 k = ['#']
 
+pool = ThreadPool(2)
 
 filelist = list()
 
@@ -21,8 +23,10 @@ for roots, dirs, files in os.walk(pathname):
         filelist.append(name)
 
 linesum = 0
-for line in fileinput.input(files=filelist):
-    stripe = line.strip()
+for k in map(fileinput.input(), filelist):
+    stripe = k.strip()
+#for line in fileinput.input(files=filelist):
+#    stripe = line.strip()
 
     #linesum += 1 if (stripe != '' or stripe[0] not in k) else 0
 
