@@ -5,6 +5,9 @@ from multiprocessing import Pool
 
 #script, pathname, tnumber = argv
 script, pathname = argv
+### Alla3e meta3u twn apo panw ean 8es na to tre3eis se benchmark
+###     me tnumber einai gia benchmark
+### Mhn 3exaseis na alla3eis kai to pool pio katw
 
 #k = ['\n', ' ', '#']
 k = ['#']
@@ -34,6 +37,11 @@ for roots, dirs, files in os.walk(pathname):
         #lines = linecounter(name)
         #lalala += lines
 #        print(name, lines, lalala)
+
+
+
+### Ean 8es benchmark bale th grammh me to tnumber
+###     kai kane comment out to pool=Pool()
 
 #pool = Pool(int(tnumber))
 pool = Pool()
